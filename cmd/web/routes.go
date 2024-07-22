@@ -16,6 +16,7 @@ func routes(app *config.AppConfig) http.Handler{
 
 	mux := chi.NewRouter()
 	mux.Use(NoSurf)
+	mux.Use(SessionLoader)
 
 	mux.Get("/", handler.Repo.Home)
 	mux.Get("/about", handler.Repo.About)
